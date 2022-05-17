@@ -58,8 +58,7 @@ spec:
         volumeMounts:
         - name: output-data
           mountPath: /output
-        env:
-        {{ include "proxy-env-spec" . | indent 12 | trim }}
+        env: {{- include "proxy-env-spec" . | nindent 10  }}
       {{- if .Values.falco.securityContext }}
         securityContext:
           {{- toYaml .Values.falco.securityContext | nindent 12 }}
